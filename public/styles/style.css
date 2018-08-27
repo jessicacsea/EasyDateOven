@@ -148,7 +148,8 @@ h1, h2, h3, h4 {
   display: inline-block;
   color: #ecebe4;
   font-family: "Fugaz One", cursive;
-  text-align: center; }
+  text-align: center;
+  text-shadow: 3px 3px #1c1c1ccc; }
 
 h1 {
   max-width: -webkit-min-content;
@@ -168,8 +169,25 @@ h4 {
   font-family: "Montserrat", sans-serif;
   grid-row: 1 / span 1; }
 
+p {
+  line-height: 2.4rem; }
+
+a {
+  text-align: center; }
+
+a:hover {
+  position: relative;
+  bottom: 2px; }
+
 .mainStartPage i {
-  font-size: 10rem; }
+  font-size: 10rem;
+  -webkit-filter: drop-shadow(3px 3px 0 #1c1c1ccc);
+  -moz-filter: drop-shadow(3px 3px 0 #1c1c1ccc);
+  filter: drop-shadow(3px 3px 0 #1c1c1ccc); }
+
+.resultsPage .restaurant p {
+  font-style: italic;
+  font-size: 2rem; }
 
 .resultsPage i, .resultsPage .watchTrailer {
   font-size: 2rem;
@@ -184,28 +202,41 @@ h4 {
 button, label, input[type=submit] {
   text-align: center;
   text-transform: lowercase;
-  font-size: 2.8rem; }
+  font-size: 2.4rem; }
 
 button, input[type=submit] {
   font-weight: 600; }
 
+p.trailer {
+  font-size: 3rem;
+  font-style: italic;
+  font-weight: 800;
+  text-align: center; }
+
 @media (max-width: 830px) {
   label {
-    font-size: 2.3rem; }
+    font-size: 2.2rem; }
   .formPage {
     grid-template-rows: auto 1fr auto; } }
 
 @media (max-width: 670px) {
   h1 {
-    font-size: 5rem; }
-  label {
-    font-size: 2rem; }
+    font-size: 5rem;
+    line-height: 4.8rem; }
   h3 {
-    font-size: 2.4rem; }
+    font-size: 2.6rem;
+    text-shadow: 2px 2px #1c1c1ccc; }
   p {
-    font-size: 1.3rem; }
+    font-size: 1.3rem;
+    line-height: 1.8rem; }
+  button, label {
+    font-size: 2rem; }
   .mainStartPage i {
-    font-size: 6rem; } }
+    font-size: 6rem; }
+  .resultsPage .result .text .watchTrailer {
+    font-size: 1.6rem; }
+  .resultsPage .result .text .callAgain {
+    font-size: 1.6rem; } }
 
 @media (max-width: 475px) {
   h2 {
@@ -219,11 +250,8 @@ button, input[type=submit] {
   .mainStartPage .fas {
     min-width: 80px; } }
 
-html {
-  background-color: #fff; }
-
-body {
-  overflow: hidden; }
+html, body {
+  background-color: #b5b2d4; }
 
 .container {
   width: 100vw;
@@ -267,8 +295,10 @@ button, label, input[type=submit] {
   button:hover, label:hover, input[type=submit]:hover {
     background-color: #4a2545; }
 
-button, input[type=submit] {
+button.start, button.newForm, input[type=submit] {
   border: #ecebe4 2px solid; }
+  button.start:hover, button.newForm:hover, input[type=submit]:hover {
+    background-color: #4a2545; }
 
 .formPage {
   display: none;
@@ -286,21 +316,49 @@ form {
   form .cuisines {
     grid-column: 1 / span 1;
     grid-row: 1 / span 1; }
+    form .cuisines:before {
+      content: "Choose a cuisine";
+      margin: 10px;
+      padding: 10px;
+      width: 100%;
+      text-transform: uppercase;
+      border-bottom: 1px solid #1c1c1ccc; }
   form .entertainment {
     grid-column: span 1 / -1;
     grid-row: 1 / span 1; }
+    form .entertainment:before {
+      content: "Choose your entertainment";
+      margin: 10px;
+      padding: 10px;
+      width: 100%;
+      text-transform: uppercase;
+      border-bottom: 1px solid #1c1c1ccc; }
   form .costs {
     grid-column: 1 / span 1;
     grid-row: 2 / span 1; }
+    form .costs:before {
+      content: "Choose your budget";
+      margin: 10px;
+      padding: 10px;
+      width: 100%;
+      text-transform: uppercase;
+      border-bottom: 1px solid #1c1c1ccc; }
   form .movieGenres, form .tvGenres {
     grid-column: span 1 / -1;
     grid-row: 2 / span 1; }
+    form .movieGenres:before, form .tvGenres:before {
+      content: "Choose a genre";
+      margin: 10px;
+      padding: 10px;
+      width: 100%;
+      text-transform: uppercase;
+      border-bottom: 1px solid #1c1c1ccc; }
 
 fieldset {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
-  align-content: center;
+  align-content: start;
   text-align: center;
   border: none; }
   fieldset > * {
@@ -355,27 +413,35 @@ input[type=submit], .newForm {
     display: grid;
     grid-template-rows: auto 1fr auto; }
     .result .text > p {
-      max-height: auto;
+      height: 100px;
       justify-self: center;
       align-content: center;
       overflow: scroll; }
     .result .text.restaurant {
       text-align: center; }
       .result .text.restaurant p {
-        font-style: italic; }
-  .result button {
-    border: none;
-    background: none; }
-    .result button:hover {
-      color: #ecebe4;
-      background-color: #4a2545cc; }
-  .result .callAgain {
-    width: 100%;
-    color: #4a2545;
-    background-color: #ecebe4cc;
-    border-radius: 0px; }
-    .result .callAgain:hover {
-      color: #ecebe4; }
+        height: auto; }
+    .result .text.tv p, .result .text.movie p {
+      height: auto;
+      max-height: 75px; }
+    .result .text .newForm {
+      grid-column: 1 / -1;
+      grid-row: span 1 / -1; }
+
+button {
+  border: none;
+  background: none; }
+  button:hover {
+    color: #ecebe4;
+    background-color: #4a2545cc; }
+
+.callAgain {
+  width: 100%;
+  color: #4a2545;
+  background-color: #ecebe4cc;
+  border-radius: 0px; }
+  .callAgain:hover {
+    color: #ecebe4; }
 
 .trailerPage {
   grid-column: 1 / -1;
@@ -387,6 +453,15 @@ input[type=submit], .newForm {
   z-index: 99; }
   .trailerPage.show {
     display: grid; }
+  .trailerPage p.trailer {
+    margin: 0;
+    width: 560px;
+    height: 315px;
+    display: grid;
+    justify-content: center;
+    align-content: center;
+    color: #1c1c1c;
+    border: 1px solid #1c1c1c; }
   .trailerPage .closeTrailer {
     justify-self: end;
     color: #1c1c1c;
@@ -420,24 +495,51 @@ input[type=submit], .newForm {
     opacity: 1;
     transform: none; } }
 
+@media (max-width: 1350px) {
+  fieldset div {
+    padding: 6px;
+    flex: 0 1 50%; }
+    fieldset div label {
+      padding: 3px 8px 5px 8px; } }
+
 @media (max-width: 720px) {
   .result .text {
-    padding: 0 5%; } }
+    padding: 0 5%; }
+  fieldset div {
+    padding: 4px; }
+    fieldset div label {
+      padding: 1px 2px;
+      border-radius: 0; } }
 
 @media (max-width: 625px) {
   .formPage {
-    grid-row-end: 1;
-    padding: 0; }
+    padding: 5% 2%; }
   form {
-    grid-template-rows: 1fr auto 1fr;
-    height: 100vh; }
+    grid-template-rows: 1fr 1fr auto; }
   .result .text {
     padding: 0 5%; }
   .resultsPage {
-    grid-template-rows: 1fr auto 1fr; }
+    grid-template-columns: 1fr;
+    grid-template-rows: auto 1fr 1fr auto; }
   input[type=submit] {
-    grid-row: 2 / -1;
-    font-size: 2.4rem; } }
+    grid-row: span 1 / -1;
+    font-size: 2.4rem; }
+  .resultsPage {
+    grid-template-columns: 1fr;
+    grid-template-rows: auto 1fr 1fr auto;
+    grid-gap: 10px; }
+    .resultsPage .result {
+      padding: 8px 0; }
+      .resultsPage .result > .text {
+        padding: 25px; }
+        .resultsPage .result > .text > p {
+          max-height: 80px; }
+      .resultsPage .result.restaurant {
+        grid-column: 1 / -1;
+        grid-row: 2 / span 1; }
+      .resultsPage .result.tv, .resultsPage .result.movie {
+        grid-column: 1 / -1;
+        grid-row: span 1 / -2; } }
 
 @media (max-width: 530px) {
   fieldset div {
