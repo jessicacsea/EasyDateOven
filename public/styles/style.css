@@ -239,7 +239,7 @@ body {
   display: grid;
   justify-content: center;
   align-content: center;
-  background-color: #b5b2d4; }
+  background-color: #4a3c74; }
 
 .mainStartPage {
   grid-template-rows: 1fr auto; }
@@ -261,7 +261,7 @@ button, label, input[type=submit] {
   padding: 8px 18px;
   width: auto;
   color: #ecebe4;
-  background-color: #b5b2d4;
+  background-color: #4a3c74;
   outline: none;
   border-radius: 18px; }
   button:hover, label:hover, input[type=submit]:hover {
