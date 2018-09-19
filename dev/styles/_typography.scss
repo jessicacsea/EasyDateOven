@@ -17,6 +17,7 @@ h1, h2, h3, h4 {
   color: $white;
   font-family: $title;
   text-align: center;
+  text-shadow: 3px 3px $blackopac;
 }
 
 h1 {
@@ -40,19 +41,35 @@ h4 {
   font-family: $body;
   grid-row: 1 / span 1;
 }
+p {
+  line-height: 2.4rem;
+}
+a {
+  text-align: center;
+}
+a:hover {
+  position: relative;
+  bottom: 2px;
+}
 
 .mainStartPage {
   i {
     font-size: 10rem;
+    -webkit-filter: drop-shadow(3px 3px 0 $blackopac); 
+    -moz-filter: drop-shadow(3px 3px 0 $blackopac); 
+    filter: drop-shadow(3px 3px 0 $blackopac);
   }
 }
 
 .resultsPage {
+  .restaurant p {
+    font-style: italic;
+    font-size: 2rem;
+  }
   i, .watchTrailer {
     font-size: 2rem;
     text-transform: uppercase;
   }
-
   .watchTrailer:before, .watchTrailer:after {
     content: " — ";
   }
@@ -64,18 +81,27 @@ h4 {
 button, label, input[type=submit] {
   text-align: center;
   text-transform: lowercase;
-  font-size: 2.8rem;
+  font-size: 2.4rem;
 }
 
 button, input[type=submit] {
   font-weight: 600;
 }
 
+p.trailer {
+  font-size: 3rem;
+  font-style: italic;
+  font-weight: 800;
+  text-align: center;
+}
+
 // ======== RESPONSIVE ===========
+
+
 
 @media (max-width: 830px) {
   label {
-    font-size: 2.3rem;
+    font-size: 2.2rem;
   }
   .formPage {
     grid-template-rows: auto 1fr auto;
@@ -85,18 +111,31 @@ button, input[type=submit] {
 @media (max-width: 670px) {
   h1 {
     font-size: 5rem;
-  }
-  label {
-    font-size: 2rem;
+    line-height: 4.8rem;
   }
   h3 {
-    font-size: 2.4rem;
+    font-size: 2.6rem;
+    text-shadow: 2px 2px $blackopac;
   }
   p {
     font-size: 1.3rem;
+    line-height: 1.8rem;
+  }
+  button, label {
+    font-size: 2rem;
   }
   .mainStartPage i {
     font-size: 6rem;
+  }
+  .resultsPage {
+    .result .text {
+      .watchTrailer {
+        font-size: 1.6rem;
+      }
+      .callAgain {
+        font-size: 1.6rem;
+      }
+    }
   }
 }
 
@@ -117,4 +156,3 @@ button, input[type=submit] {
     min-width: 80px;
   }
 }
-
